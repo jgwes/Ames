@@ -1,4 +1,6 @@
+# Tutorial for Real Estate Pricing Estimates
 # Imports
+
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import cross_val_score, train_test_split
@@ -268,7 +270,6 @@ corr = train.corr()
 corr.sort_values(["SalePrice"], ascending = False, inplace = True)
 print(corr.SalePrice)
 
-'''
 # Create new features
 # 3* Polynomials on the top 10 existing features
 train["OverallQual-s2"] = train["OverallQual"] ** 2
@@ -561,4 +562,3 @@ imp_coefs = pd.concat([coefs.sort_values().head(10),
 imp_coefs.plot(kind = "barh")
 plt.title("Coefficients in the ElasticNet Model")
 plt.show()
-'''
