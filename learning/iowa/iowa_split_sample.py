@@ -3,7 +3,7 @@ from sklearn.tree import DecisionTreeRegressor
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error
 
-iowa_file_path = "./learning/iowa/data/train.csv"
+iowa_file_path = "./data/train.csv"
 home_data = pd.read_csv(iowa_file_path)
 
 y = home_data.SalePrice
@@ -23,6 +23,23 @@ print('Acutal target values for those homes:', y.head().tolist())
 # Overfit!
 
 # Step 1 - Split home_data
+#   Split data into training and test sets
+#   To fit model on traning data and predict on test data
+# Split example:
+# >>> X_train, X_test, y_train, y_test = train_test_split(
+# ...     X, y, test_size=0.33, random_state=42)
+# >>> X_train
+# array([[4, 5],
+#        [0, 1],
+#        [6, 7]])
+# >>> y_train
+#  [2, 0, 3]
+# >>> X_test
+# array([[2, 3],
+#       [8, 9]])
+# >>> y_test
+# [1, 4]
+
 train_X, val_X, train_y, val_y = train_test_split(X, y, random_state=0)
 
 # Step 2 - Specify and Fit the model with training data
